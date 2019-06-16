@@ -34,7 +34,6 @@ class Test extends Component {
 
   renderLines = () => {
     const { x1, y1, x2, y2, lines, shapeIsSelected } = this.props.coordinate;
-
     return lines;
   };
 
@@ -61,7 +60,9 @@ class Test extends Component {
           }}
           onMouseUp={() => this.saveLine()}
         >
-          {lines ? lines : ""}
+          {/* {lines ? lines : ""} */}
+          {/* {lines ? lines.map(ele => <span>{ele}</span>) : ""} */}
+          {lines ? lines.map(ele => <svg>{ele}</svg>) : ""}
           {line ? line : ""}
         </StyledSVG>
       </Container>
