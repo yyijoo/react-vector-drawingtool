@@ -60,9 +60,7 @@ class Test extends Component {
           }}
           onMouseUp={() => this.saveLine()}
         >
-          {/* {lines ? lines : ""} */}
-          {/* {lines ? lines.map(ele => <span>{ele}</span>) : ""} */}
-          {lines ? lines.map(ele => <svg>{ele}</svg>) : ""}
+          {lines ? lines.map(ele => ele) : ""}
           {line ? line : ""}
         </StyledSVG>
       </Container>
