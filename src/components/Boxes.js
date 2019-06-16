@@ -1,11 +1,8 @@
 import styled from "styled-components";
-
-const colors = {
-  toolbox: "#5D5D5D"
-};
+import * as colors from "common/colors";
 
 export const Box = styled.div`
-  background-color: ${colors.toolbox};
+  background-color: ${colors.toolBox};
 `;
 
 export const FileMenuBox = styled(Box)`
@@ -16,4 +13,10 @@ export const FileMenuBox = styled(Box)`
 export const ToolBox = styled(Box)`
   height: 150px;
   margin: 10px;
+`;
+
+export const CanvasBox = styled.div``;
+
+export const Canvas = styled.div`
+  background-color: ${colors.canvas};
 `;

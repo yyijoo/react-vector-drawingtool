@@ -1,8 +1,11 @@
 import styled from "styled-components";
+import * as colors from "common/colors";
 
 export const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
+  background-color: ${colors.overall};
+  height: 100%;
 `;
 
 export const LeftContainer = styled.div`
