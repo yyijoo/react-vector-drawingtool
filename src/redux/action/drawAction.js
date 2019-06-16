@@ -1,5 +1,11 @@
 import * as c from "redux/constants";
 
+export const selectShape = () => {
+  return {
+    type: c.SELECT_SHAPE
+  };
+};
+
 export const draw = (startOrEnd, x, y) => {
   if (startOrEnd === "start") {
     return {

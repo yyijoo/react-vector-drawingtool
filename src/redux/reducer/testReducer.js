@@ -15,12 +15,17 @@ const initialState = {
 
 const drawReducer = (state = initialState, action) => {
   switch (action.type) {
+    case c.SELECT_SHAPE:
+      return {
+        ...state,
+        shapeIsSelected: !state.shapeIsSelected
+      };
     case c.GET_COORD_START:
       return {
         ...state,
         x1: action.payload.x,
-        y1: action.payload.y,
-        shapeIsSelected: !state.shapeIsSelected
+        y1: action.payload.y
+        // shapeIsSelected: !state.shapeIsSelected
       };
 
     case c.GET_COORD_END:

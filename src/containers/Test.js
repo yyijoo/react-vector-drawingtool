@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
-import { draw } from "redux/action/drawAction";
+import { selectShape, draw } from "redux/action/drawAction";
 
 const Container = styled.div`
   display: flex;
@@ -16,7 +16,6 @@ const StyledSVG = styled.svg`
 
 class Test extends Component {
   drawLine = (x1, y1, x2, y2) => {
-    console.log("mouseUp");
     this.props.coordinate.line = (
       <line x1={x1} y1={y1} x2={x2} y2={y2} stroke="orange" stroke-width="5" />
     );
@@ -28,37 +27,28 @@ class Test extends Component {
   };
 
   componentDidUpdate = () => {
-    const { x1, y1, x2, y2, lines, shapeIsSelected } = this.props.coordinate;
+    const { x1, y1, x2, y2, shapeIsSelected } = this.props.coordinate;
     if (shapeIsSelected) this.drawLine(x1, y1, x2, y2);
-  };
-
-  renderLines = () => {
-    const { x1, y1, x2, y2, lines, shapeIsSelected } = this.props.coordinate;
-    return lines;
   };
 
   render() {
     const { lines, line } = this.props.coordinate;
-    console.log("lines", lines);
+    const { draw, selectShape } = this.props;
+
     return (
       <Container className="App">
         <StyledSVG
-          onMouseDown={e =>
-            this.props.draw(
-              "start",
-              e.nativeEvent.offsetX,
-              e.nativeEvent.offsetY
-            )
-          }
-          onMouseMove={e => {
-            this.props.draw(
-              "end",
-              e.nativeEvent.offsetX,
-              e.nativeEvent.offsetY
-            );
-            console.log("moving");
+          onMouseDown={e => {
+            selectShape();
+            draw("start", e.nativeEvent.offsetX, e.nativeEvent.offsetY);
           }}
-          onMouseUp={() => this.saveLine()}
+          onMouseMove={e => {
+            draw("end", e.nativeEvent.offsetX, e.nativeEvent.offsetY);
+          }}
+          onMouseUp={() => {
+            this.saveLine();
+            selectShape();
+          }}
         >
           {lines ? lines.map(ele => ele) : ""}
           {line ? line : ""}
@@ -70,14 +60,14 @@ class Test extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    draw: (startOrEnd, x, y) => dispatch(draw(startOrEnd, x, y))
+    draw: (startOrEnd, x, y) => dispatch(draw(startOrEnd, x, y)),
+    selectShape: () => dispatch(selectShape())
   };
 };
 
 const mapStateToProps = state => {
   return {
     coordinate: state.drawReducer
-    // startDraw
   };
 };
 
