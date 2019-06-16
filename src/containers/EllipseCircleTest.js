@@ -9,37 +9,40 @@ const Container = styled.div`
   justify-content: center;
 `;
 const StyledSVG = styled.svg`
-  border: 1px solid red;
+  border: 1px solid black;
   width: 500px;
   height: 500px;
 `;
 
-class SquareTest extends Component {
-  drawRect = (x1, y1, x2, y2) => {
-    this.props.coordinate.rect = (
-      <rect
-        x={x1}
-        y={y1}
-        width={x2 - x1}
-        height={y2 - y1}
-        fill="pink"
-        stroke-width="1"
+class EllipseCircleTest extends Component {
+  drawCircle = (x1, y1, x2, y2) => {
+    console.log(x1, y1);
+    console.log("x", (x2 - x1) / 2, "y", (y2 - y1) / 2);
+    this.props.coordinate.circle = (
+      <ellipse
+        cx={x1 + (x2 - x1) / 2}
+        cy={y1 + (y2 - y1) / 2}
+        rx={(x2 - x1) * 2}
+        ry={(y2 - y1) * 2}
+        fill="grey"
+        stroke="orange"
+        stroke-width="5"
       />
     );
   };
 
-  saveRect = () => {
-    this.props.coordinate.shapes.push(this.props.coordinate.rect);
-    this.props.coordinate.rect = null;
+  saveLine = () => {
+    this.props.coordinate.shapes.push(this.props.coordinate.circle);
+    this.props.coordinate.circle = null;
   };
 
   componentDidUpdate = () => {
     const { x1, y1, x2, y2, shapeIsSelected } = this.props.coordinate;
-    if (shapeIsSelected) this.drawRect(x1, y1, x2, y2);
+    if (shapeIsSelected) this.drawCircle(x1, y1, x2, y2);
   };
 
   render() {
-    const { shapes, line, rect } = this.props.coordinate;
+    const { shapes, line, circle } = this.props.coordinate;
     const { draw, selectShape } = this.props;
 
     return (
@@ -50,18 +53,15 @@ class SquareTest extends Component {
             draw("start", e.nativeEvent.offsetX, e.nativeEvent.offsetY);
           }}
           onMouseMove={e => {
-            console.log("move");
             draw("end", e.nativeEvent.offsetX, e.nativeEvent.offsetY);
           }}
           onMouseUp={() => {
-            this.saveRect();
+            this.saveLine();
             selectShape();
           }}
         >
           {shapes ? shapes.map(ele => ele) : ""}
-          {/* {line ? line : ""} */}
-          {rect ? rect : ""}
-          <div>ddd</div>
+          {circle ? circle : ""}
         </StyledSVG>
       </Container>
     );
@@ -84,4 +84,4 @@ const mapStateToProps = state => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(SquareTest);
+)(EllipseCircleTest);

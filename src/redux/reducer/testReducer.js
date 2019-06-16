@@ -16,10 +16,12 @@ const initialState = {
       stroke="yellow"
       fill="green"
       stroke-width="1"
-    />
+    />,
+    <ellipse />
   ],
   line: [],
   rect: null,
+  circle: null,
   shapeIsSelected: false
 };
 
