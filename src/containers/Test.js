@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import { connect } from "react-redux";
+import { draw } from "redux/action/drawAction";
 
 const Container = styled.div`
   display: flex;
@@ -13,61 +15,74 @@ const StyledSVG = styled.svg`
 `;
 
 class Test extends Component {
-  state = {
-    x1: null,
-    x2: null,
-    y1: null,
-    y2: null,
-    lines: []
-  };
-
-  drawLine = () => {
-    this.state.lines.push(
-      <line
-        x1={this.state.x1}
-        x2={this.state.x2}
-        y1={this.state.y1}
-        y2={this.state.y2}
-        stroke="orange"
-        stroke-width="5"
-      />
+  drawLine = (x1, y1, x2, y2) => {
+    console.log("mouseUp");
+    this.props.coordinate.line = (
+      <line x1={x1} y1={y1} x2={x2} y2={y2} stroke="orange" stroke-width="5" />
     );
   };
 
+  saveLine = () => {
+    this.props.coordinate.lines.push(this.props.coordinate.line);
+    this.props.coordinate.line = null;
+  };
+
+  componentDidUpdate = () => {
+    const { x1, y1, x2, y2, lines, shapeIsSelected } = this.props.coordinate;
+    if (shapeIsSelected) this.drawLine(x1, y1, x2, y2);
+  };
+
+  renderLines = () => {
+    const { x1, y1, x2, y2, lines, shapeIsSelected } = this.props.coordinate;
+
+    return lines;
+  };
+
   render() {
+    const { lines, line } = this.props.coordinate;
+    console.log("lines", lines);
     return (
       <Container className="App">
         <StyledSVG
           onMouseDown={e =>
-            this.setState({
-              x1: e.nativeEvent.offsetX,
-              y1: e.nativeEvent.offsetY
-            })
+            this.props.draw(
+              "start",
+              e.nativeEvent.offsetX,
+              e.nativeEvent.offsetY
+            )
           }
-          onMouseUp={e => {
-            this.state.lines.push(
-              <line
-                x1={this.state.x1}
-                x2={e.nativeEvent.offsetX}
-                y1={this.state.y1}
-                y2={e.nativeEvent.offsetY}
-                stroke="orange"
-                stroke-width="5"
-              />
+          onMouseMove={e => {
+            this.props.draw(
+              "end",
+              e.nativeEvent.offsetX,
+              e.nativeEvent.offsetY
             );
-            this.setState({
-              x1: null,
-              x2: null,
-              y1: null,
-              y2: null
-            });
+            console.log("moving");
           }}
+          onMouseUp={() => this.saveLine()}
         >
-          {this.state.lines ? this.state.lines : ""}
+          {lines ? lines : ""}
+          {line ? line : ""}
         </StyledSVG>
       </Container>
     );
   }
 }
 
-export default Test;
+const mapDispatchToProps = dispatch => {
+  return {
+    draw: (startOrEnd, x, y) => dispatch(draw(startOrEnd, x, y))
+  };
+};
+
+const mapStateToProps = state => {
+  return {
+    coordinate: state.drawReducer
+    // startDraw
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Test);
