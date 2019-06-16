@@ -6,10 +6,20 @@ const initialState = {
   y1: null,
   x2: null,
   y2: null,
-  lines: [
-    <line x1={10} y1={10} x2={100} y2={100} stroke="red" stroke-width="3" />
+  shapes: [
+    <line x1={10} y1={10} x2={100} y2={100} stroke="red" stroke-width="3" />,
+    <rect
+      x={100}
+      y={100}
+      width={100}
+      height={100}
+      stroke="yellow"
+      fill="green"
+      stroke-width="1"
+    />
   ],
   line: [],
+  rect: null,
   shapeIsSelected: false
 };
 
