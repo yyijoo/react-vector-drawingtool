@@ -2,22 +2,26 @@ import React, { Component } from "react";
 import { ToolBox, CanvasBox, Canvas } from "component/Boxes";
 import { connect } from "react-redux";
 import { selectShape, getCoord, draw } from "redux/action/drawAction";
-import { drawLine, drawSquare } from "common/drawfuncs";
+import { drawShape } from "common/drawfuncs";
 
 class CanvasArea extends Component {
-  saveShape = () => {
-    this.props.shapes.push(this.props.drawingShape);
+  completeDrawing = () => {
+    const { shapes, getCoord } = this.props;
+    shapes.push(this.props.drawingShape);
+    getCoord("start", null, null);
+    getCoord("end", null, null);
   };
+
   shouldComponentUpdate = nextProps => {
     return nextProps.bottomRightCoord.x !== this.props.bottomRightCoord.x;
   };
 
   componentDidUpdate = () => {
-    console.log("selectedShape", this.props.selectedShape);
     const { topLeftCoord, bottomRightCoord, selectedShape, draw } = this.props;
     if (selectedShape && topLeftCoord.x) {
       draw(
-        drawSquare(
+        drawShape(
+          selectedShape,
           topLeftCoord.x,
           topLeftCoord.y,
           bottomRightCoord.x,
@@ -27,8 +31,7 @@ class CanvasArea extends Component {
     }
   };
   render() {
-    // const { shapes, line } = this.props.coordinate;
-    const { getCoord, selectShape, drawingShape, shapes } = this.props;
+    const { getCoord, drawingShape, shapes } = this.props;
 
     return (
       <CanvasBox>
@@ -41,8 +44,7 @@ class CanvasArea extends Component {
             getCoord("end", e.nativeEvent.offsetX, e.nativeEvent.offsetY);
           }}
           onMouseUp={() => {
-            this.saveShape();
-            selectShape(null);
+            this.completeDrawing();
           }}
         >
           {drawingShape ? drawingShape : ""}
@@ -75,5 +77,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(CanvasArea);
-
-// export default CanvasArea;
