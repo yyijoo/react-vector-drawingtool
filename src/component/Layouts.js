@@ -9,7 +9,8 @@ export const Container = styled.div`
 `;
 
 export const LeftContainer = styled.div`
-  flex-basis: 100px;
+  width: 80px;
+  flex-basis: 80px;
   flex-grow: 0;
 `;
 

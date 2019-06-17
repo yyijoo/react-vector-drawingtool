@@ -8,13 +8,12 @@ import EditShapeTool from "container/EditShapeTool.js";
 import ActionTool from "container/ActionTool.js";
 import LayerTool from "container/LayerTool.js";
 import CanvasArea from "container/CanvasArea.js";
-
 import {
   Container,
   LeftContainer,
   MiddleContainer,
   RightContainer
-} from "components/Layouts";
+} from "component/Layouts";
 import "normalize.css";
 
 class App extends Component {

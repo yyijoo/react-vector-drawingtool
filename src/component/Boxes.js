@@ -15,8 +15,15 @@ export const ToolBox = styled(Box)`
   margin: 10px;
 `;
 
-export const CanvasBox = styled.div``;
+export const CanvasBox = styled.div`
+  overflow: scroll;
+  height: 100%;
+`;
 
-export const Canvas = styled.div`
+export const Canvas = styled.svg`
+  display: block;
   background-color: ${colors.canvas};
+  width: 80%;
+  height: 80%;
+  margin: auto;
 `;
