@@ -5,6 +5,7 @@ import store from "redux/store.js";
 import FileMenu from "container/FileMenu.js";
 import CreateShapeTool from "container/CreateShapeTool.js";
 import EditShapeTool from "container/EditShapeTool.js";
+import EditCanvasTool from "container/EditCanvasTool.js";
 import ActionTool from "container/ActionTool.js";
 import LayerTool from "container/LayerTool.js";
 import CanvasArea from "container/CanvasArea.js";
@@ -30,6 +31,7 @@ class App extends Component {
             <CanvasArea />
           </MiddleContainer>
           <RightContainer>
+            <EditCanvasTool />
             <EditShapeTool />
             <LayerTool />
           </RightContainer>
