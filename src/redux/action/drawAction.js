@@ -7,7 +7,7 @@ export const selectShape = selectedShape => {
   };
 };
 
-export const draw = (startOrEnd, x, y) => {
+export const getCoord = (startOrEnd, x, y) => {
   if (startOrEnd === "start") {
     return {
       type: c.GET_COORD_START,
@@ -25,4 +25,12 @@ export const draw = (startOrEnd, x, y) => {
       }
     };
   }
+};
+
+export const draw = drawingShape => {
+  console.log(drawingShape);
+  return {
+    type: c.DRAWING,
+    payload: drawingShape
+  };
 };

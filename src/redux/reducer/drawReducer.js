@@ -12,19 +12,13 @@ const initialState = {
       y: null
     }
   },
-  shapeIsSelected: false,
   selectedShape: null,
   drawingShape: null,
-  Layers: [
-    {
-      id: 0,
-      drawnShapes: []
-    }
-  ],
-  shapes: [],
-  line: [],
-  rect: null,
-  circle: null
+  layers: {
+    0: [
+      <line x1={10} y1={10} x2={100} y2={100} stroke="red" stroke-width="3" />
+    ]
+  }
 };
 
 const drawReducer = (state = initialState, action) => {
@@ -56,6 +50,17 @@ const drawReducer = (state = initialState, action) => {
             y: action.payload.y
           }
         }
+      };
+
+    case c.DRAWING:
+      return {
+        ...state,
+        drawingShape: action.payload
+      };
+
+    case c.COMPLETE_DRAWING:
+      return {
+        ...state
       };
 
     default:
