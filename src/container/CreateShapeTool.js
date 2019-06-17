@@ -1,8 +1,14 @@
 import React from "react";
-import { ToolBox } from "components/Boxes";
+import { ToolBox } from "component/Boxes";
+import ShapeIcon from "component/createShapeTool/ShapeIcon";
 
 const CreateShapeTool = () => {
-  return <ToolBox>Create Shape Tool</ToolBox>;
+  return (
+    <ToolBox>
+      <ShapeIcon selectedShape="line" />
+      <ShapeIcon selectedShape="square" />
+    </ToolBox>
+  );
 };
 
 export default CreateShapeTool;
