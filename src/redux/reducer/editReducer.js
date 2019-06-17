@@ -1,10 +1,10 @@
 import * as c from "redux/constants";
 
 const initialState = {
-  fillColor: "pink",
+  fillColor: "yellow",
   fillOpacity: "100%",
   strokeColor: "grey",
-  strokeWidth: "1px",
+  strokeWidth: "1",
   strokeOpacity: "100%"
 };
 

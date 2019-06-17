@@ -17,17 +17,15 @@ class CanvasArea extends Component {
   };
 
   componentDidUpdate = () => {
-    const { topLeftCoord, bottomRightCoord, selectedShape, draw } = this.props;
+    const {
+      topLeftCoord,
+      bottomRightCoord,
+      selectedShape,
+      draw,
+      shapeAttr
+    } = this.props;
     if (selectedShape && topLeftCoord.x) {
-      draw(
-        drawShape(
-          selectedShape,
-          topLeftCoord.x,
-          topLeftCoord.y,
-          bottomRightCoord.x,
-          bottomRightCoord.y
-        )
-      );
+      draw(drawShape(selectedShape, topLeftCoord, bottomRightCoord, shapeAttr));
     }
   };
   render() {
@@ -64,12 +62,19 @@ const mapDispatchToProps = dispatch => {
 };
 
 const mapStateToProps = state => {
+  const {
+    coordinates,
+    selectedShape,
+    drawingShape,
+    layers
+  } = state.drawReducer;
   return {
-    topLeftCoord: state.drawReducer.coordinates.topLeftCoord,
-    bottomRightCoord: state.drawReducer.coordinates.bottomRightCoord,
-    selectedShape: state.drawReducer.selectedShape,
-    drawingShape: state.drawReducer.drawingShape,
-    shapes: state.drawReducer.layers[0]
+    topLeftCoord: coordinates.topLeftCoord,
+    bottomRightCoord: coordinates.bottomRightCoord,
+    selectedShape: selectedShape,
+    drawingShape: drawingShape,
+    shapes: layers[0],
+    shapeAttr: state.editReducer
   };
 };
 
