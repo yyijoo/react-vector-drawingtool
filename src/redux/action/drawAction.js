@@ -1,8 +1,9 @@
 import * as c from "redux/constants";
 
-export const selectShape = () => {
+export const selectShape = selectedShape => {
   return {
-    type: c.SELECT_SHAPE
+    type: c.SELECT_SHAPE,
+    payload: selectedShape
   };
 };
 
