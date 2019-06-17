@@ -1,5 +1,5 @@
 import React from "react";
-import { FileMenuBox } from "components/Boxes";
+import { FileMenuBox } from "component/Boxes";
 
 const FileMenu = () => {
   return <FileMenuBox>file</FileMenuBox>;

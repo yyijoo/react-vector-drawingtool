@@ -1,5 +1,5 @@
 import React from "react";
-import { ToolBox } from "components/Boxes";
+import { ToolBox } from "component/Boxes";
 
 const ActionTool = () => {
   return <ToolBox>Action Tool</ToolBox>;

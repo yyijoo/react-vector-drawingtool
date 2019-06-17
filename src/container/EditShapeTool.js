@@ -1,5 +1,5 @@
 import React from "react";
-import { ToolBox } from "components/Boxes";
+import { ToolBox } from "component/Boxes";
 
 const EditShapeTool = () => {
   return <ToolBox>Edit Shape Tool</ToolBox>;
