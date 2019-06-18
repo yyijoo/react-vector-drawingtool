@@ -7,6 +7,8 @@ const CreateShapeTool = () => {
     <ToolBox>
       <ShapeIcon selectedShape="line" />
       <ShapeIcon selectedShape="square" />
+      <ShapeIcon selectedShape="circle" />
+      <ShapeIcon selectedShape="triangle" />
     </ToolBox>
   );
 };

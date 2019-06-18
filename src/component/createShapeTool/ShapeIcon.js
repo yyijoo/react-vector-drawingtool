@@ -25,6 +25,26 @@ const shapes = {
     icon: (
       <rect x="0" y="0" width={iconSize} height={iconSize} fill={colors.icon} />
     )
+  },
+  circle: {
+    name: "circle",
+    icon: (
+      <circle
+        cx={iconSize / 2}
+        cy={iconSize / 2}
+        r={iconSize / 2}
+        fill={colors.icon}
+      />
+    )
+  },
+  triangle: {
+    name: "triangle",
+    icon: (
+      <polygon
+        points={`${iconSize / 2} 0, ${iconSize} ${iconSize}, 0 ${iconSize}`}
+        fill={colors.icon}
+      />
+    )
   }
 };
 
