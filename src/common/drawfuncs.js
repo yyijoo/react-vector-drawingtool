@@ -17,6 +17,10 @@ export const drawShape = (
     strokeWidth,
     strokeOpacity
   } = shapeAttr;
+
+  const width = x2 - x1;
+  const height = y2 - y1;
+
   switch (shapeType) {
     case "line":
       return (
@@ -34,8 +38,8 @@ export const drawShape = (
         <rect
           x={x1}
           y={y1}
-          width={x2 - x1}
-          height={y2 - y1}
+          width={width}
+          height={height}
           fill={fillColor}
           stroke={strokeColor}
           stroke-width={strokeWidth}
@@ -45,10 +49,20 @@ export const drawShape = (
     case "circle":
       return (
         <ellipse
-          cx={x1 + (x2 - x1) / 2}
-          cy={y1 + (y2 - y1) / 2}
-          rx={(x2 - x1) / 2}
-          ry={(y2 - y1) / 2}
+          cx={x1 + width / 2}
+          cy={y1 + height / 2}
+          rx={width / 2}
+          ry={height / 2}
+          fill={fillColor}
+          stroke={strokeColor}
+          stroke-width={strokeWidth}
+        />
+      );
+
+    case "triangle":
+      return (
+        <polygon
+          points={`${x1 + width / 2} ${y1}, ${x2} ${y2}, ${x1} ${y2}`}
           fill={fillColor}
           stroke={strokeColor}
           stroke-width={strokeWidth}
