@@ -12,10 +12,17 @@ import { drawShape } from "common/drawfuncs";
 class CanvasArea extends Component {
   handleOnMouseUp = () => {
     const { shapes, getCoord, completeDrawing } = this.props;
-    shapes.push(this.props.drawingShape);
+
+    // 좌표를 바꿔준다.
     getCoord("start", null, null);
     getCoord("end", null, null);
-    completeDrawing();
+
+    // 해당 레이어에 새로운 도형을 추가한다.
+    let newShapes = shapes.concat({
+      id: shapes.length,
+      ele: this.props.drawingShape
+    });
+    completeDrawing(newShapes);
   };
 
   shouldComponentUpdate = nextProps => {
@@ -61,7 +68,7 @@ class CanvasArea extends Component {
           }}
         >
           {drawingShape ? drawingShape : ""}
-          {shapes ? shapes.map(ele => ele) : ""}
+          {shapes ? shapes.map(ele => ele.ele) : ""}
         </Canvas>
       </CanvasBox>
     );
@@ -73,7 +80,7 @@ const mapDispatchToProps = dispatch => {
     getCoord: (startOrEnd, x, y) => dispatch(getCoord(startOrEnd, x, y)),
     draw: drawnShape => dispatch(draw(drawnShape)),
     selectShape: () => dispatch(selectShape()),
-    completeDrawing: () => dispatch(completeDrawing())
+    completeDrawing: newShapes => dispatch(completeDrawing(newShapes))
   };
 };
 

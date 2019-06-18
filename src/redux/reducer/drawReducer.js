@@ -16,9 +16,22 @@ const initialState = {
   drawingShape: null,
   layers: {
     0: [
-      <line x1={10} y1={10} x2={100} y2={100} stroke="red" stroke-width="3" />
+      {
+        id: 0,
+        ele: (
+          <line
+            x1={10}
+            y1={10}
+            x2={100}
+            y2={100}
+            stroke="red"
+            stroke-width="3"
+          />
+        )
+      }
     ]
-  }
+  },
+  selectedShapeId: null
 };
 
 const drawReducer = (state = initialState, action) => {
@@ -59,7 +72,10 @@ const drawReducer = (state = initialState, action) => {
     case c.COMPLETE_DRAWING:
       return {
         ...state,
-        drawingShape: null
+        drawingShape: null,
+        layers: {
+          0: action.payload
+        }
       };
 
     default:
