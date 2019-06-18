@@ -3,3 +3,4 @@ export const GET_COORD_END = "GET_COORD_END";
 export const SELECT_SHAPE = "SELECT_SHAPE";
 export const DRAWING = "DRAWING";
 export const COMPLETE_DRAWING = "COMPLETE_DRAWING";
+export const CHANGE_CANVAS_SIZE = "CHANGE_CANVAS_SIZE";
