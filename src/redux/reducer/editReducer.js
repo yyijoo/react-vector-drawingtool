@@ -10,6 +10,11 @@ const initialState = {
 
 const editReducer = (state = initialState, action) => {
   switch (action.type) {
+    case c.EDIT_COLOR:
+      return {
+        ...state,
+        fillColor: action.payload
+      };
     default:
       return state;
   }
