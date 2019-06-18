@@ -42,6 +42,19 @@ export const drawShape = (
         />
       );
 
+    case "circle":
+      return (
+        <ellipse
+          cx={x1 + (x2 - x1) / 2}
+          cy={y1 + (y2 - y1) / 2}
+          rx={(x2 - x1) / 2}
+          ry={(y2 - y1) / 2}
+          fill={fillColor}
+          stroke={strokeColor}
+          stroke-width={strokeWidth}
+        />
+      );
+
     default:
       return <line />;
   }
