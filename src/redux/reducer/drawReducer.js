@@ -39,7 +39,6 @@ const drawReducer = (state = initialState, action) => {
           }
         }
       };
-
     case c.GET_COORD_END:
       return {
         ...state,
@@ -51,7 +50,6 @@ const drawReducer = (state = initialState, action) => {
           }
         }
       };
-
     case c.DRAWING:
       return {
         ...state,
@@ -60,7 +58,8 @@ const drawReducer = (state = initialState, action) => {
 
     case c.COMPLETE_DRAWING:
       return {
-        ...state
+        ...state,
+        drawingShape: null
       };
 
     default:

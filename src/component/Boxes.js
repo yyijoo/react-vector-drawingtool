@@ -23,7 +23,7 @@ export const CanvasBox = styled.div`
 export const Canvas = styled.svg`
   display: block;
   background-color: ${colors.canvas};
-  width: 80%;
-  height: 80%;
+  width: ${props => (props.width ? `${props.width}px` : "600px")};
+  height: ${props => (props.height ? `${props.height}px` : "600px")};
   margin: auto;
 `;

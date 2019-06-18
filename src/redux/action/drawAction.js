@@ -34,3 +34,9 @@ export const draw = drawingShape => {
     payload: drawingShape
   };
 };
+
+export const completeDrawing = () => {
+  return {
+    type: c.COMPLETE_DRAWING
+  };
+};
