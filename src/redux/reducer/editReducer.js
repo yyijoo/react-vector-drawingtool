@@ -34,6 +34,12 @@ const editReducer = (state = initialState, action) => {
         strokeOpacity: action.payload
       };
 
+    case c.EDIT_STROKE_WIDTH:
+      return {
+        ...state,
+        strokeWidth: action.payload
+      };
+
     default:
       return state;
   }

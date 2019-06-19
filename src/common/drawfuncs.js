@@ -31,6 +31,7 @@ export const drawShape = (
           y2={y2}
           stroke={strokeColor}
           stroke-width={shapeAttr.strokeWidth}
+          stroke-opacity={shapeAttr.strokeOpacity / 100}
         />
       );
     case "square":
@@ -43,6 +44,8 @@ export const drawShape = (
           fill={fillColor}
           stroke={strokeColor}
           stroke-width={strokeWidth}
+          fill-opacity={shapeAttr.fillOpacity / 100}
+          stroke-opacity={shapeAttr.strokeOpacity / 100}
         />
       );
 
@@ -56,6 +59,8 @@ export const drawShape = (
           fill={fillColor}
           stroke={strokeColor}
           stroke-width={strokeWidth}
+          fill-opacity={shapeAttr.fillOpacity / 100}
+          stroke-opacity={shapeAttr.strokeOpacity / 100}
         />
       );
 
@@ -66,6 +71,8 @@ export const drawShape = (
           fill={fillColor}
           stroke={strokeColor}
           stroke-width={strokeWidth}
+          fill-opacity={shapeAttr.fillOpacity / 100}
+          stroke-opacity={shapeAttr.strokeOpacity / 100}
         />
       );
 

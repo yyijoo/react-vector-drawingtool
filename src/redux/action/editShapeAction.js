@@ -27,3 +27,10 @@ export const editOpacStroke = opacity => {
     payload: opacity
   };
 };
+
+export const editStroke = width => {
+  return {
+    type: c.EDIT_STROKE_WIDTH,
+    payload: width
+  };
+};
