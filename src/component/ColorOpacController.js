@@ -26,6 +26,10 @@ class ColorOpacController extends Component {
       position: relative;
     `;
 
+    const StyledBlockPicker = styled(BlockPicker)`
+      z-index: 1;
+    `;
+
     const ColorPicker = ({ color, onChange }) => {
       const PickerBox = styled.div`
         position: absolute;
@@ -35,7 +39,7 @@ class ColorOpacController extends Component {
 
       return (
         <PickerBox>
-          <BlockPicker color={color} onChange={onChange} />
+          <StyledBlockPicker color={color} onChange={onChange} />
         </PickerBox>
       );
     };
