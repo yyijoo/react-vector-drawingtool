@@ -4,13 +4,12 @@ import * as colors from "common/colors";
 import { selectShape } from "redux/action/drawAction";
 import { connect } from "react-redux";
 
-const iconSize = 20;
+const iconSize = 25;
 
 const IconSVG = styled.svg`
   width: ${iconSize}px;
   height: ${iconSize}px;
-  border: pink solid 1px;
-  padding: 5px;
+  padding: 10px;
 `;
 
 const shapes = {
