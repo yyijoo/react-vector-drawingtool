@@ -21,21 +21,23 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <Container>
+        <div>
           <FileMenu />
-          <LeftContainer>
-            <CreateShapeTool />
-            <ActionTool />
-          </LeftContainer>
-          <MiddleContainer>
-            <CanvasArea />
-          </MiddleContainer>
-          <RightContainer>
-            <EditCanvasTool />
-            <EditShapeTool />
-            <LayerTool />
-          </RightContainer>
-        </Container>
+          <Container>
+            <LeftContainer>
+              <CreateShapeTool />
+              <ActionTool />
+            </LeftContainer>
+            <MiddleContainer>
+              <CanvasArea />
+            </MiddleContainer>
+            <RightContainer>
+              <EditCanvasTool />
+              <EditShapeTool />
+              <LayerTool />
+            </RightContainer>
+          </Container>
+        </div>
       </Provider>
     );
   }

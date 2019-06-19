@@ -5,20 +5,21 @@ export const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
   background-color: ${colors.overall};
-  height: 100%;
+  width: 100%;
+  height: calc(100vh - 45px);
 `;
 
 export const LeftContainer = styled.div`
-  width: 80px;
-  flex-basis: 80px;
-  flex-grow: 0;
+  background-color: ${colors.overall};
 `;
 
 export const MiddleContainer = styled.div`
   flex-grow: 1;
+  overflow: scroll;
+  background-color: ${colors.canvasBackground};
+  width: calc(100vw - 8000px);
 `;
 
 export const RightContainer = styled.div`
-  flex-basis: 100px;
-  flex-grow: 0;
+  background-color: ${colors.overall};
 `;
