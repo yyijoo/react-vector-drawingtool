@@ -1,30 +1,26 @@
 import React from "react";
-import { ToolBox } from "component/Boxes";
-import selectIcon from "select.png";
+import selectIcon from "img/select.png";
+import eraserIcon from "img/eraser.png";
+import { ToolBox, ToolBoxLeft } from "component/Boxes";
 import styled from "styled-components";
 import { selectShape, getCoord, draw } from "redux/action/drawAction";
 import { connect } from "react-redux";
 
 const SelectIcon = styled.img`
-  width: 30px;
-  border: 1px yellow solid;
+  width: ${props => (props.width ? props.width : "25")}px;
+  padding: ${props => (props.padding ? props.padding : "10")}px;
 `;
 
 const ActionTool = ({ selectShape }) => {
   return (
     <ToolBox>
-      Action Tool
-      <SelectIcon src={selectIcon} onClick={() => selectShape(null)} />
+      <ToolBoxLeft>
+        <SelectIcon src={selectIcon} onClick={() => selectShape(null)} />
+        <SelectIcon src={eraserIcon} width="29" padding="8" />
+      </ToolBoxLeft>
     </ToolBox>
   );
 };
-
-// const mapStateToProps = state => {
-//   const {selectShape} = state.drawReducer
-//   return {
-//     selectShape:
-//   }
-// }
 
 const mapDispatchToProps = dispatch => {
   return {
