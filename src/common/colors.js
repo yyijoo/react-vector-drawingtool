@@ -6,6 +6,7 @@ export const canvasBackground = "#c0c0c0";
 // Text Color
 export const inputText = "#5D5D5D";
 export const toolBoxTitle = "white";
+export const menu = "white";
 
 // Fill
 export const inputBox = "white";

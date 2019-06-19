@@ -8,6 +8,8 @@ export const Box = styled.div`
 export const FileMenuBox = styled(Box)`
   height: 45px;
   width: 100%;
+  display: flex;
+  align-items: center;
 `;
 
 export const ToolBox = styled(Box)`
@@ -34,7 +36,7 @@ export const ToolItem = styled.div`
   display: flex;
   background-color: ${colors.inputBox};
   width: 150px;
-  height: 30px;
+  min-height: 30px;
   justify-content: center;
   margin-bottom: 10px;
 
