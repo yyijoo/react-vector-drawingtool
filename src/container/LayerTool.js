@@ -1,8 +1,21 @@
 import React from "react";
-import { ToolBox } from "component/Boxes";
+import { ToolBox, ToolBoxLeft, ToolBoxTitle, ToolItem } from "component/Boxes";
+import styled from "styled-components";
+
+const ToolItemLayer = styled(ToolItem)`
+  background-color: transparent;
+  border: 1px solid black;
+`;
 
 const LayerTool = () => {
-  return <ToolBox>Layer Tool</ToolBox>;
+  return (
+    <ToolBox>
+      <ToolBoxLeft>
+        <ToolBoxTitle>Layers</ToolBoxTitle>
+        <ToolItemLayer />
+      </ToolBoxLeft>
+    </ToolBox>
+  );
 };
 
 export default LayerTool;
