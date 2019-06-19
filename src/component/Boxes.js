@@ -12,7 +12,7 @@ export const FileMenuBox = styled(Box)`
 
 export const ToolBox = styled(Box)`
   margin: 15px;
-  padding: 10px;
+  padding: 15px;
 `;
 
 export const ToolBoxLeft = styled.div`
@@ -23,13 +23,41 @@ export const ToolBoxLeft = styled.div`
 `;
 
 export const ToolBoxTitle = styled.div`
-  color: white;
+  color: ${colors.toolBoxTitle};
   text-decoration: none;
-  padding-left: 20px;
-  padding-top: 2px;
-  font-size: 0.8em;
-  line-height: 0;
+  font-size: 1rem;
   font-family: Arial, Helvetica, sans-serif;
+  padding-bottom: 5px;
+`;
+
+export const ToolItem = styled.div`
+  display: flex;
+  background-color: ${colors.inputBox};
+  width: 150px;
+  height: 30px;
+  justify-content: center;
+  margin-bottom: 10px;
+
+  :last-child {
+    margin-bottom: 0;
+  }
+`;
+export const ToolItemTitle = styled.span`
+  font-size: 0.7em;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 30%;
+  padding: 5px;
+`;
+
+export const ToolItemValue = styled.span`
+  width: 70%;
+`;
+export const Input = styled.input`
+  border: none;
+  width: 70%;
+  cursor: pointer;
+  color: ${colors.inputText};
+  text-align: center;
 `;
 
 export const CanvasBox = styled.div`

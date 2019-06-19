@@ -33,7 +33,7 @@ class App extends Component {
             </MiddleContainer>
             <RightContainer>
               <EditCanvasTool />
-              <EditShapeTool />
+              {/* <EditShapeTool /> */}
               <LayerTool />
             </RightContainer>
           </Container>
