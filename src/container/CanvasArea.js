@@ -49,12 +49,13 @@ class CanvasArea extends Component {
   };
   render() {
     const { getCoord, drawingShape, shapes } = this.props;
-    const { width, height } = this.props.canvasSet;
+    const { width, height, canvasColor } = this.props.canvasSet;
 
     return (
       <CanvasBox>
         CanvasArea
         <Canvas
+          bgColor={canvasColor}
           width={width}
           height={height}
           onMouseDown={e => {

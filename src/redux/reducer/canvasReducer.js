@@ -21,6 +21,13 @@ const canvasReducer = (state = initialState, action) => {
         ...state,
         canvasColor: action.payload
       };
+
+    case c.EDIT_OPACITY_CANVAS:
+      return {
+        ...state,
+        canvasOpacity: action.payload
+      };
+
     default:
       return state;
   }

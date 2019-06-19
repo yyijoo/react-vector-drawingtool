@@ -9,7 +9,12 @@ import {
   Input
 } from "component/Boxes";
 import { connect } from "react-redux";
-import { changeCanvasSize } from "redux/action/canvasEditAction";
+import ColorOpacController from "component/ColorOpacController";
+import {
+  changeCanvasSize,
+  editColorCanvas,
+  editOpacCanvas
+} from "redux/action/editCanvasAction";
 
 class EditCanvasTool extends Component {
   handleOnChange = (e, widthOrHeight) => {
@@ -24,7 +29,8 @@ class EditCanvasTool extends Component {
   };
 
   render() {
-    const { width, height } = this.props.canvasSet;
+    const { width, height, canvasColor, canvasOpacity } = this.props.canvasSet;
+    const { changeColor, changeOpacity } = this.props;
     return (
       <ToolBox>
         <ToolBoxLeft>
@@ -45,7 +51,14 @@ class EditCanvasTool extends Component {
           </ToolItem>
           <ToolItem>
             <ToolItemTitle>Color</ToolItemTitle>
-            <ToolItemValue>colors</ToolItemValue>
+            <ToolItemValue>
+              <ColorOpacController
+                color={canvasColor}
+                opacity={canvasOpacity}
+                editColor={changeColor}
+                inputChanger={changeOpacity}
+              />
+            </ToolItemValue>
           </ToolItem>
         </ToolBoxLeft>
       </ToolBox>
@@ -61,7 +74,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    changeSize: (width, height) => dispatch(changeCanvasSize(width, height))
+    changeSize: (width, height) => dispatch(changeCanvasSize(width, height)),
+    changeColor: color => dispatch(editColorCanvas(color)),
+    changeOpacity: opacity => dispatch(editOpacCanvas(opacity))
   };
 };
 

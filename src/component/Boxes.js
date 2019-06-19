@@ -83,7 +83,7 @@ export const CanvasBox = styled.div`
 
 export const Canvas = styled.svg`
   display: block;
-  background-color: ${colors.canvas};
+  background-color: ${props => (props.bgColor ? props.bgColor : colors.canvas)};
   width: ${props => (props.width ? `${props.width}px` : "600px")};
   height: ${props => (props.height ? `${props.height}px` : "600px")};
   margin: auto;

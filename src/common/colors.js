@@ -10,6 +10,5 @@ export const menu = "white";
 
 // Fill
 export const inputBox = "white";
-
 export const icon = "white";
 export const canvas = "white";
