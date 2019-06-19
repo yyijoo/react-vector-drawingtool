@@ -24,8 +24,8 @@ const initialState = {
             y1={10}
             x2={100}
             y2={100}
-            stroke="red"
-            stroke-width="3"
+            stroke="gray"
+            stroke-width="2"
           />
         )
       }
