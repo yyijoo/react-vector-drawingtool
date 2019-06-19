@@ -16,29 +16,6 @@ import styled from "styled-components";
 import { BlockPicker } from "react-color";
 import { editColorFill, editColorStroke } from "redux/action/editShapeAction";
 
-const PickerBox = styled.div`
-  position: absolute;
-  top: 30px;
-  left: -77px;
-`;
-
-const ColorPicker = ({ color, onChange }) => {
-  return (
-    <PickerBox>
-      <BlockPicker color={color} onChange={onChange} />
-    </PickerBox>
-  );
-};
-
-const ColorPickerButton = styled.span`
-  display: inline-block;
-  background-color: ${props => (props.color ? props.color : "")};
-  width: 15px;
-  height: 15px;
-  border: 1px solid black;
-  position: relative;
-`;
-
 class ColorOpacController extends Component {
   state = {
     showPicker: false
@@ -47,9 +24,29 @@ class ColorOpacController extends Component {
   render() {
     const { showPicker } = this.state;
     const { color, opacity, editColor } = this.props;
-    const Span = styled.span`
-      text-align: center;
+
+    const ColorPickerButton = styled.span`
+      display: inline-block;
+      background-color: ${props => (props.color ? props.color : "")};
+      width: 15px;
+      height: 15px;
+      border: 1px solid black;
+      position: relative;
     `;
+
+    const ColorPicker = ({ color, onChange }) => {
+      const PickerBox = styled.div`
+        position: absolute;
+        top: 30px;
+        left: -77px;
+      `;
+
+      return (
+        <PickerBox>
+          <BlockPicker color={color} onChange={onChange} />
+        </PickerBox>
+      );
+    };
     return (
       <Item>
         <ColorPickerButton
@@ -58,7 +55,7 @@ class ColorOpacController extends Component {
         >
           {showPicker ? <ColorPicker color={color} onChange={editColor} /> : ""}
         </ColorPickerButton>
-        <Span>{opacity}</Span>
+        <Input value={opacity} />
       </Item>
     );
   }
@@ -89,7 +86,7 @@ class EditShapeTool extends Component {
                 opacity={editValues.strokeOpacity}
                 editColor={editColorStroke}
               />
-              <Item>{editValues.strokeWidth}</Item>
+              <Input value={editValues.strokeWidth} width="100" />
             </ToolItemValue>
           </ToolItem>
         </ToolBoxLeft>

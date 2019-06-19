@@ -41,6 +41,7 @@ export const ToolItem = styled.div`
   justify-content: center;
   margin-bottom: 10px;
   align-items: center;
+  border: white 1px solid;
 
   :last-child {
     margin-bottom: 0;
@@ -58,16 +59,19 @@ export const ToolItemValue = styled.span`
   width: 70%;
   display: flex;
   flex-direction: column;
+  border: white 1px solid;
 `;
 
 export const Item = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
+  padding: 5px;
 `;
 
 export const Input = styled.input`
   border: none;
-  width: 70%;
+  width: ${props => (props.width ? props.width : 70)}%;
   cursor: pointer;
   color: ${colors.inputText};
   text-align: center;
