@@ -53,7 +53,6 @@ class CanvasArea extends Component {
 
     return (
       <CanvasBox>
-        CanvasArea
         <Canvas
           bgColor={canvasColor}
           width={width}

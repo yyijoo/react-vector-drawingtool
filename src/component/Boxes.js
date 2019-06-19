@@ -29,7 +29,6 @@ export const ToolBoxTitle = styled.div`
   color: ${colors.toolBoxTitle};
   text-decoration: none;
   font-size: 1rem;
-  font-family: Arial, Helvetica, sans-serif;
   padding-bottom: 5px;
 `;
 
@@ -49,7 +48,6 @@ export const ToolItem = styled.div`
 `;
 export const ToolItemTitle = styled.span`
   font-size: 0.7em;
-  font-family: Arial, Helvetica, sans-serif;
   width: 30%;
   padding: 5px;
   text-align: center;
@@ -78,20 +76,16 @@ export const Input = styled.input`
 `;
 
 export const CanvasBox = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100%;
+  overflow: scroll;
 `;
 
 export const Canvas = styled.svg`
-  display: block;
+  display: inline-block;
   background-color: ${props => (props.bgColor ? props.bgColor : colors.canvas)};
-  width: ${props => (props.width ? `${props.width}px` : "600px")};
-  height: ${props => (props.height ? `${props.height}px` : "600px")};
-  margin: auto;
-`;
-
-export const ToolBoxTitles = styled.p`
-  color: white;
-  font-family: Arial, Helvetica, sans-serif;
-  text-decoration: none;
-  padding: 10px 0px 0px 15px;
+  width: ${props => (props.width ? `${props.width}px` : "500px")};
+  height: ${props => (props.height ? `${props.height}px` : "500px")};
 `;
