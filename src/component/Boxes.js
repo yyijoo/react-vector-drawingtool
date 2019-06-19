@@ -22,6 +22,7 @@ export const ToolBoxLeft = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+
 `;
 
 export const ToolBoxTitle = styled.div`
@@ -39,6 +40,7 @@ export const ToolItem = styled.div`
   min-height: 30px;
   justify-content: center;
   margin-bottom: 10px;
+  align-items: center;
 
   :last-child {
     margin-bottom: 0;
@@ -49,11 +51,20 @@ export const ToolItemTitle = styled.span`
   font-family: Arial, Helvetica, sans-serif;
   width: 30%;
   padding: 5px;
+  text-align: center;
 `;
 
 export const ToolItemValue = styled.span`
   width: 70%;
+  display: flex;
+  flex-direction: column;
 `;
+
+export const Item = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
 export const Input = styled.input`
   border: none;
   width: 70%;
