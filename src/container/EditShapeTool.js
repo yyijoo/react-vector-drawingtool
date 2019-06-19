@@ -12,11 +12,23 @@ import ColorOpacController from "component/ColorOpacController";
 
 import { connect } from "react-redux";
 
-import { editColorFill, editColorStroke } from "redux/action/editShapeAction";
+import {
+  editColorFill,
+  editColorStroke,
+  editOpacFill,
+  editOpacStroke
+} from "redux/action/editShapeAction";
 
 class EditShapeTool extends Component {
+  handleOnChange = e => {};
   render() {
-    const { editValues, editColorFill, editColorStroke } = this.props;
+    const {
+      editValues,
+      editColorFill,
+      editColorStroke,
+      editOpacFill,
+      editOpacStroke
+    } = this.props;
     return (
       <ToolBox>
         <ToolBoxLeft>
@@ -28,6 +40,7 @@ class EditShapeTool extends Component {
                 color={editValues.fillColor}
                 opacity={editValues.fillOpacity}
                 editColor={editColorFill}
+                inputChanger={editOpacFill}
               />
             </ToolItemValue>
           </ToolItem>
@@ -38,6 +51,7 @@ class EditShapeTool extends Component {
                 color={editValues.strokeColor}
                 opacity={editValues.strokeOpacity}
                 editColor={editColorStroke}
+                inputChanger={editOpacStroke}
               />
               <Input value={editValues.strokeWidth} width="100" />
             </ToolItemValue>
@@ -57,7 +71,9 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     editColorFill: selectedColor => dispatch(editColorFill(selectedColor)),
-    editColorStroke: selectedColor => dispatch(editColorStroke(selectedColor))
+    editColorStroke: selectedColor => dispatch(editColorStroke(selectedColor)),
+    editOpacFill: opacity => dispatch(editOpacFill(opacity)),
+    editOpacStroke: opacity => dispatch(editOpacStroke(opacity))
   };
 };
 export default connect(

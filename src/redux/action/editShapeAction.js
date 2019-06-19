@@ -13,3 +13,17 @@ export const editColorStroke = selectedColor => {
     payload: selectedColor.hex
   };
 };
+
+export const editOpacFill = opacity => {
+  return {
+    type: c.EDIT_OPACITY_FILL,
+    payload: opacity
+  };
+};
+
+export const editOpacStroke = opacity => {
+  return {
+    type: c.EDIT_OPACITY_STROKE,
+    payload: opacity
+  };
+};

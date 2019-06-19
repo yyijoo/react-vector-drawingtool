@@ -8,6 +8,11 @@ class ColorOpacController extends Component {
     showPicker: false
   };
 
+  handleOnChange = e => {
+    const { inputChanger } = this.props;
+    inputChanger(Number(e.target.value));
+  };
+
   render() {
     const { showPicker } = this.state;
     const { color, opacity, editColor } = this.props;
@@ -34,6 +39,7 @@ class ColorOpacController extends Component {
         </PickerBox>
       );
     };
+    console.log("here", this.props.inputChanger);
     return (
       <Item>
         <ColorPickerButton
@@ -42,7 +48,7 @@ class ColorOpacController extends Component {
         >
           {showPicker ? <ColorPicker color={color} onChange={editColor} /> : ""}
         </ColorPickerButton>
-        <Input value={opacity} />
+        <Input value={opacity} onChange={e => this.handleOnChange(e)} />
       </Item>
     );
   }

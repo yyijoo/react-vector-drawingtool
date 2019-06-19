@@ -10,16 +10,30 @@ const initialState = {
 
 const editReducer = (state = initialState, action) => {
   switch (action.type) {
-    case c.EDIT_COLOR_STROKE:
-      return {
-        ...state,
-        strokeColor: action.payload
-      };
     case c.EDIT_COLOR_FILL:
       return {
         ...state,
         fillColor: action.payload
       };
+
+    case c.EDIT_COLOR_STROKE:
+      return {
+        ...state,
+        strokeColor: action.payload
+      };
+
+    case c.EDIT_OPACITY_FILL:
+      return {
+        ...state,
+        fillOpacity: action.payload
+      };
+
+    case c.EDIT_OPACITY_STROKE:
+      return {
+        ...state,
+        strokeOpacity: action.payload
+      };
+
     default:
       return state;
   }
