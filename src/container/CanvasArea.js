@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { ToolBox, CanvasBox, Canvas } from "component/Boxes";
+import { CanvasBox, Canvas } from "component/Boxes";
 import { connect } from "react-redux";
 import {
   selectShape,

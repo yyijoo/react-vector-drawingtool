@@ -3,7 +3,7 @@ import selectIcon from "img/select.png";
 import eraserIcon from "img/eraser.png";
 import { ToolBox, ToolBoxLeft } from "component/Boxes";
 import styled from "styled-components";
-import { selectShape, getCoord, draw } from "redux/action/drawAction";
+import { selectShape } from "redux/action/drawAction";
 import { connect } from "react-redux";
 
 const SelectIcon = styled.img`

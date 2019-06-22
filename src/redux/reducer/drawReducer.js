@@ -1,5 +1,4 @@
 import * as c from "redux/constants";
-import React from "react";
 
 const initialState = {
   coordinates: {
